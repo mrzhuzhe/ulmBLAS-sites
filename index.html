@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>
+    work/sghpc (index)
+    </title>
+
+<script type="text/javascript">
+  MathJax.Hub.Config({
+     extensions: ["tex2jax.js"],
+     tex2jax: {
+         inlineMath: [ ['$','$']/*, ["\\(","\\)"]*/ ],
+         displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+         processEscapes: true
+     },
+     "HTML-CSS": { scale: 100 }
+  });
+</script>
+
+<script type="text/javascript"
+ src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<link rel="stylesheet"
+      type="text/css"
+      href="./default.css"
+      title="default style"
+      media="screen,projection">
+
+
+</head>
+<body>
+<script type="text/javascript" src="./wz_tooltip.js"></script>
+
+<div id="wrap">
+
+<div class="nav">
+<span class="nav_tut_middle">
+
+
+
+</span>
+
+
+<span class="nav_tut_right">
+<a class="nav" href="dir.html">Browse Files</a>
+</span>
+</div>
+
+<div><a name="top"></a></div>
+
+<div id="content">
+
+<h1 class="doc">
+GEMM: From Pure C to SSE Optimized Micro Kernels</h1>
+
+<i>
+<b>Note:</b>  Unfortunately on NA Digest I posted the <tt>https</tt> URL of this site.  As our server uses only a self
+  signed SSL certificate that is inconvenient, e.g. some browsers will not display formulas properly even if you trust the
+  certificate.  Use the <tt>http</tt> URL<br>
+ <a href="http://apfel.mathematik.uni-ulm.de/~lehn/sghpc/gemm/index.html">http://apfel.mathematik.uni-ulm.de/~lehn/sghpc/gemm/index.html</a><br>
+ instead. In the mean time I will order a proper signed certificate.</i><br><br>
+
+<p >
+     On the next pages we try to discover how <a href="https://code.google.com/p/blis/">BLIS</a> can achieve such a great performance.  <b>For this journey we set up our own BLAS implementation!</b></p><p >
+     In our <a href="http://apfel.mathematik.uni-ulm.de/~lehn/ulmBLAS/">ulmBLAS</a> project we have implemented a simple matrix-matrix product that follows the ideas described in <a href="http://www.cs.utexas.edu/users/flame/pubs/BLISTOMSrev2.pdf">BLIS: A Framework for Rapidly Instantiating BLAS Functionality</a>.</p><ul class="itemize">
+    <li>
+        <p >
+             <a href="page01/index.html">Page 1</a> How to obtain the <a href="https://github.com/michael-lehn/ulmBLAS">ulmBLAS</a> project.        </p>    </li>
+    <li>
+        <p >
+             <a href="page02/index.html">Page 2</a> Pure C implementation         </p>    </li>
+    <li>
+        <p >
+             <a href="page03/index.html">Page 3</a> Naive Use of SSE Intrinsics.        </p>    </li>
+    <li>
+        <p >
+             <a href="page04/index.html">Page 4</a> Applying loop unrolling to the previous implementation.        </p>    </li>
+    <li>
+        <p >
+             <a href="page05/index.html">Page 5</a> Another SSE Intrinsics Approach which is based on the <a href="https://code.google.com/p/blis/">BLIS</a> micro kernel for SSE architectures.        </p>    </li>
+    <li>
+        <p >
+             <a href="page06/index.html">Page 6</a> Improving pipelining by reordering SSE intrinsics.        </p>    </li>
+    <li>
+        <p >
+             <a href="page07/index.html">Page 7</a> Limitations of SSE intrinsics.        </p>    </li>
+    <li>
+        <p >
+             <a href="page08/index.html">Page 8</a> We go nuclear and translate the intrinsics to assember by ourself!        </p>    </li>
+    <li>
+        <p >
+             <a href="page09/index.html">Page 9</a> Unrolling the nuke: demo-asm-unrolled.        </p>    </li>
+    <li>
+        <p >
+             <a href="page10/index.html">Page 10</a> Fine-tuning the unrolled assembler kernel.        </p>    </li>
+    <li>
+        <p >
+             <a href="page11/index.html">Page 11</a> More fine-tuning of the unrolled assembler kernel.        </p>    </li>
+    <li>
+        <p >
+             <a href="page12/index.html">Page 12</a> Preparation for adding prefetching: Porting the rest of the micro kernel to assembler.        </p>    </li>
+    <li>
+        <p >
+             <a href="page13/index.html">Page 13</a> Adding prefetching.        </p>    </li>
+    <li>
+        <p >
+             <a href="page14/index.html">Page 14</a> Benchmarking!  Comparing the performance with <a href="https://software.intel.com/en-us/intel-mkl">MKL</a>, <a href="http://math-atlas.sourceforge.net">ATLAS</a>, <a href="http://eigen.tuxfamily.org/index.php?title=Main_Page">Eigen</a> and the original <a href="https://code.google.com/p/blis/">BLIS</a> micro kernel.        </p>    </li>
+</ul>
+<p >
+     Note that all benchmarks on these pages were generated when <a href="https://github.com/michael-lehn/DocTool">doctool</a> transformed the doc files to HTML.  All this happened on my MacBook Pro which has a 2.4 GHz Intel Core 2 Duo (P8600, &#8220;Penryn&#8221).  The theoretical peak performance of one core is 9.6 GFLOPS.</p><p >
+     <a href="http://apfel.mathematik.uni-ulm.de/~lehn/sghpc">Back</a> to the main course</p>
+</div> <!-- id="content" -->
+
+
+<div class="nav">
+<span class="nav_tut_middle">
+
+
+
+</span>
+</div>
+
+
+<div id="footer">
+    <p id="src">
+        View
+        <a href=".//index.doc.txt">
+            document source
+            </a>
+        </p>
+    <a name="source"></a>
+    <p id="copy">&copy;   2014 <a href="http://www.mathematik.uni-ulm.de/~lehn">Michael Lehn</a></p>
+</div>
+
+</div> <!-- id="wrap" -->
+
+</body>
+</html>
